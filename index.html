@@ -1,1 +1,671 @@
-<!doctype>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nurvi Hospital Begusarai</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f7fb;
+      color:#222;
+    }
+
+    /* Navbar */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 8%;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      z-index:1000;
+    }
+
+    nav h1{
+      color:#0077ff;
+      font-size:28px;
+    }
+
+    nav ul{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:#222;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#0077ff;
+    }
+
+    /* Hero Section */
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+      url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1400');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero-content{
+      animation:fadeIn 2s;
+    }
+
+    .hero h2{
+      font-size:65px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      max-width:700px;
+      margin:auto;
+      line-height:1.6;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:30px;
+      padding:15px 35px;
+      background:#00aaff;
+      color:white;
+      text-decoration:none;
+      border-radius:40px;
+      font-weight:bold;
+      transition:0.4s;
+    }
+
+    .btn:hover{
+      background:#0077ff;
+      transform:scale(1.05);
+    }
+
+    /* Sections */
+
+    section{
+      padding:100px 8%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .title h2{
+      font-size:45px;
+      color:#0077ff;
+      margin-bottom:10px;
+    }
+
+    .title p{
+      color:#555;
+    }
+
+    /* About */
+
+    .about{
+      display:flex;
+      flex-wrap:wrap;
+      gap:40px;
+      align-items:center;
+    }
+
+    .about img{
+      width:500px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .about-text{
+      flex:1;
+    }
+
+    .about-text h3{
+      font-size:40px;
+      margin-bottom:20px;
+    }
+
+    .about-text p{
+      line-height:1.8;
+      color:#555;
+    }
+
+    /* Doctor */
+
+    .doctor-card{
+      background:white;
+      border-radius:20px;
+      padding:40px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:40px;
+      align-items:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
+      transition:0.4s;
+    }
+
+    .doctor-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .doctor-card img{
+      width:320px;
+      border-radius:20px;
+    }
+
+    .doctor-info h3{
+      font-size:40px;
+      color:#0077ff;
+      margin-bottom:10px;
+    }
+
+    .doctor-info h4{
+      margin-bottom:20px;
+      color:#444;
+    }
+
+    .doctor-info p{
+      color:#555;
+      line-height:1.7;
+    }
+
+    /* Services */
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .service-box{
+      background:white;
+      padding:35px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      transition:0.4s;
+      text-align:center;
+    }
+
+    .service-box:hover{
+      transform:translateY(-10px);
+      background:#0077ff;
+      color:white;
+    }
+
+    .service-box h3{
+      margin:20px 0;
+    }
+
+    /* Appointment */
+
+    .appointment{
+      background:#0077ff;
+      color:white;
+      border-radius:30px;
+      text-align:center;
+      padding:60px;
+    }
+
+    .appointment form{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      margin-top:40px;
+    }
+
+    .appointment input,
+    .appointment textarea{
+      padding:15px;
+      border:none;
+      border-radius:10px;
+      outline:none;
+    }
+
+    .appointment button{
+      padding:15px;
+      background:black;
+      color:white;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:18px;
+      transition:0.4s;
+    }
+
+    .appointment button:hover{
+      background:white;
+      color:black;
+    }
+
+    /* Contact */
+
+    .contact-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .contact-item{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .contact-item h3{
+      margin-bottom:15px;
+      color:#0077ff;
+    }
+
+    /* Footer */
+
+    footer{
+      background:black;
+      color:white;
+      text-align:center;
+      padding:30px;
+      margin-top:50px;
+    }
+
+    /* Floating Buttons */
+
+    .whatsapp{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      background:#25d366;
+      color:white;
+      padding:15px 20px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:bold;
+      box-shadow:0 5px 20px rgba(0,0,0,0.3);
+      animation:bounce 1.5s infinite;
+    }
+
+    .email{
+      position:fixed;
+      right:20px;
+      bottom:90px;
+      background:#0077ff;
+      color:white;
+      padding:15px 20px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:bold;
+      box-shadow:0 5px 20px rgba(0,0,0,0.3);
+      animation:bounce 1.5s infinite;
+    }
+
+    /* Animation */
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(50px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes bounce{
+      0%,100%{
+        transform:translateY(0);
+      }
+      50%{
+        transform:translateY(-10px);
+      }
+    }
+
+    /* Responsive */
+
+    @media(max-width:900px){
+
+      nav ul{
+        display:none;
+      }
+
+      .hero h2{
+        font-size:45px;
+      }
+
+      .about{
+        flex-direction:column;
+      }
+
+      .doctor-card{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .about img{
+        width:100%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+  <nav>
+    <h1>Nurvi Hospital</h1>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#doctor">Doctor</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#appointment">Appointment</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Nurvi Hospital Begusarai</h2>
+
+      <p>
+        Advanced Urology & Surgical Care with modern facilities,
+        emergency support and trusted healthcare services.
+      </p>
+
+      <a href="#appointment" class="btn">Book Appointment</a>
+    </div>
+  </section>
+
+  <!-- About -->
+
+  <section id="about">
+
+    <div class="title">
+      <h2>About Hospital</h2>
+      <p>Trusted healthcare center in Begusarai</p>
+    </div>
+
+    <div class="about">
+
+      <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1200" alt="hospital">
+
+      <div class="about-text">
+        <h3>Best Urology Hospital</h3>
+
+        <p>
+          Nurvi Hospital provides advanced urology and surgical treatment
+          with modern technology and expert care.
+          We focus on patient safety, emergency treatment,
+          kidney stone surgery, prostate surgery and more.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Doctor -->
+
+  <section id="doctor">
+
+    <div class="title">
+      <h2>Our Doctor</h2>
+      <p>Experienced Specialist</p>
+    </div>
+
+    <div class="doctor-card">
+
+      <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200" alt="doctor">
+
+      <div class="doctor-info">
+
+        <h3>Dr. Gulshan Kumar</h3>
+
+        <h4>M.Ch Urology | Ex-Fellow CMC Vellore</h4>
+
+        <p>
+          Specialist in kidney stone treatment,
+          prostate surgery, pediatric urology,
+          emergency urology and endoscopic surgery.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Services -->
+
+  <section id="services">
+
+    <div class="title">
+      <h2>Our Services</h2>
+      <p>Advanced Treatments</p>
+    </div>
+
+    <div class="services">
+
+      <div class="service-box">
+        <h3>Kidney Stone Treatment</h3>
+        <p>Advanced laser surgery & treatment.</p>
+      </div>
+
+      <div class="service-box">
+        <h3>Prostate Surgery</h3>
+        <p>Modern surgical care and support.</p>
+      </div>
+
+      <div class="service-box">
+        <h3>Emergency Urology</h3>
+        <p>24x7 emergency medical support.</p>
+      </div>
+
+      <div class="service-box">
+        <h3>Pediatric Urology</h3>
+        <p>Expert care for children's urology.</p>
+      </div>
+
+      <div class="service-box">
+        <h3>Cancer Treatment</h3>
+        <p>Professional and safe treatment.</p>
+      </div>
+
+      <div class="service-box">
+        <h3>Endoscopic Surgery</h3>
+        <p>Modern and advanced procedures.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Appointment -->
+
+  <section id="appointment">
+
+    <div class="appointment">
+
+      <h2>Book Appointment</h2>
+
+      <form>
+
+        <input type="text" placeholder="Your Name">
+
+        <input type="tel" placeholder="Phone Number">
+
+        <input type="email" placeholder="Email Address">
+
+        <input type="date">
+
+        <textarea rows="5" placeholder="Describe Problem"></textarea>
+
+        <button type="submit">Confirm Appointment</button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- Contact -->
+
+  <section id="contact">
+
+    <div class="title">
+      <h2>Contact Us</h2>
+      <p>Nurvi Hospital Begusarai</p>
+    </div>
+
+    <div class="contact-box">
+
+      <div class="contact-item">
+        <h3>Address</h3>
+
+        <p>
+          N.H.-31, Pillar No.-20,
+          West of Jail Gate, Shivpuri,
+          Begusarai
+        </p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Phone</h3>
+
+        <p>8252957704</p>
+        <p>8470024051</p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Email</h3>
+
+        <p>nurvihospital@gmail.com</p>
+      </div>
+
+    </div>
+
+  </section>
+  <!-- Contact -->
+
+<section id="contact">
+
+  <div class="title">
+    <h2>Contact Us</h2>
+    <p>Nurvi Hospital Begusarai</p>
+  </div>
+
+  <div class="contact-box">
+
+    <div class="contact-item">
+      <h3>Address</h3>
+
+      <p>
+        N.H.-31, Pillar No.-20,
+        West of Jail Gate, Shivpuri,
+        Begusarai
+      </p>
+    </div>
+
+    <div class="contact-item">
+      <h3>Phone</h3>
+
+      <p>8252957704</p>
+      <p>8470024051</p>
+    </div>
+
+    <div class="contact-item">
+      <h3>Email</h3>
+
+      <p>nurvihospital@gmail.com</p>
+    </div>
+
+  </div>
+
+  <!-- Google Map -->
+
+  <div style="
+    margin-top:50px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  ">
+
+    <iframe
+      src="https://maps.google.com/maps?q=Begusarai%20Jail%20Gate&t=&z=15&ie=UTF8&iwloc=&output=embed"
+      width="100%"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+
+  </div>
+
+</section>
+
+  <!-- Floating Buttons -->
+
+  <a href="mailto:nurvihospital@gmail.com" class="email">
+    📧 Email
+  </a>
+
+  <a href="https://wa.me/918252957704" class="whatsapp">
+    💬 WhatsApp
+  </a>
+
+  <!-- Footer -->
+
+  <footer>
+    <p>
+      © 2026 Nurvi Hospital Begusarai | All Rights Reserved
+    </p>
+  </footer>
+
+  <script>
+
+    // Smooth alert animation
+
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      alert("Appointment Submitted Successfully!");
+
+    });
+
+  </script>
+
+</body>
+          </html>
