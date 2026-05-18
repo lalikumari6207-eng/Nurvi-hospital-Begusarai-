@@ -569,7 +569,19 @@ line-height:1.8;
 color:#555;
 }
   
+/* SCROLL ANIMATION */
 
+.hidden{
+opacity:0;
+transform:translateY(80px) scale(0.95);
+transition:all 1s ease;
+}
+
+.show{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+  
 </style>
 </head>
 
@@ -619,7 +631,7 @@ color:#555;
 
 <!-- HERO -->
 
-<section class="hero" id="home">
+<section class="hero hidden" id="home">
 
 <div class="hero-container">
 
@@ -691,7 +703,7 @@ male healthcare solutions using modern techniques.
 
 <!-- SERVICES -->
 
-<section id="services" style="background:#f8f8f8;">
+<section id="services hidden" style="background:#f8f8f8;">
 
 <div class="container">
 
@@ -752,7 +764,7 @@ Quick emergency consultation and immediate patient support services.
 
 <!-- GALLERY -->
 
-<section id="gallery">
+<section id="gallery hidden">
 
 <div class="container">
 
@@ -761,7 +773,7 @@ Quick emergency consultation and immediate patient support services.
 <p>Hospital Environment & Healthcare Services</p>
 </div>
 
-<div class="slider">
+<div class="slider hidden">
 
 <div class="slide-track">
 
@@ -797,7 +809,7 @@ Quick emergency consultation and immediate patient support services.
 
   <!-- FAQ SECTION -->
 
-<section id="faq" style="background:#f8f8f8;">
+<section id="faq hidden" style="background:#f8f8f8;">
 
 <div class="container">
 
@@ -965,7 +977,7 @@ Nurvi Hospital provides trusted healthcare, experienced doctors, modern technolo
 
 <section>
 
-<div class="container appointment" id="appointment">
+<div class="container appointment hidden" id="appointment">
 
 <div class="title">
 
@@ -1166,6 +1178,24 @@ icon.innerHTML="−";
 });
 
 });
+  
+  // SCROLL ANIMATION
+
+const hiddenElements=document.querySelectorAll(".hidden");
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach((entry)=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+
+});
+
+});
+
+hiddenElements.forEach((el)=>observer.observe(el));
 
 
 </script>
