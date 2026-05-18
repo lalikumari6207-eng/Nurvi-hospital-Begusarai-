@@ -536,6 +536,55 @@ width:280px;
 
 </div>
 
+  /* FAQ */
+
+.faq-container{
+max-width:1000px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.faq-box{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.faq-question{
+width:100%;
+padding:25px;
+border:none;
+background:white;
+font-size:20px;
+font-weight:600;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+color:#c40000;
+}
+
+.faq-question span{
+font-size:28px;
+transition:0.3s;
+}
+
+.faq-answer{
+max-height:0;
+overflow:hidden;
+transition:0.4s ease;
+padding:0 25px;
+}
+
+.faq-answer p{
+padding-bottom:25px;
+line-height:1.8;
+color:#555;
+}
+
 <!-- NAVBAR -->
 
 <header>
@@ -744,6 +793,170 @@ Quick emergency consultation and immediate patient support services.
 
 </div>
 
+  <!-- FAQ SECTION -->
+
+<section id="faq" style="background:#f8f8f8;">
+
+<div class="container">
+
+<div class="title">
+<h2>Frequently Asked Questions</h2>
+<p>Common Questions About Our Hospital & Services</p>
+</div>
+
+<div class="faq-container">
+
+<div class="faq-box">
+<button class="faq-question">
+What treatments are available at Nurvi Hospital?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+We provide kidney stone treatment, prostate care, urinary tract treatment,
+male health consultation, uro surgeries and emergency urology care.
+</p>
+</div>
+</div>
+
+<div class="faq-box">
+<button class="faq-question">
+How can I book an appointment?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+You can fill the appointment form on this website or directly contact us on WhatsApp or phone call.
+</p>
+</div>
+</div>
+
+<div class="faq-box">
+<button class="faq-question">
+Does the hospital provide emergency services?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+Yes, we provide quick emergency consultation and immediate medical support for patients.
+</p>
+</div>
+</div>
+
+<div class="faq-box">
+<button class="faq-question">
+Where is Nurvi Hospital located?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+Nurvi Hospital is located at Pokharia Road, Chitragupta Nagar, Begusarai, Bihar.
+</p>
+</div>
+</div>
+
+<div class="faq-box">
+<button class="faq-question">
+What are the hospital working hours?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+Our hospital is open Monday to Saturday from 9 AM to 7 PM.
+</p>
+</div>
+</div>
+
+<div class="faq-box">
+<button class="faq-question">
+Do you provide kidney stone laser treatment?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+Yes, advanced laser treatment for kidney stone problems is available with modern technology.
+</p>
+</div>
+</div>
+
+<div class="faq-box">
+<button class="faq-question">
+Can I contact the doctor directly?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+Yes, patients can directly contact the hospital through phone call or WhatsApp support.
+</p>
+</div>
+</div>
+
+<div class="faq-box">
+<button class="faq-question">
+Is parking available at the hospital?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+Yes, parking facilities are available for patients and visitors.
+</p>
+</div>
+</div>
+
+<div class="faq-box">
+<button class="faq-question">
+Do you provide consultation for male health issues?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+Yes, we provide professional consultation and treatment for male wellness and reproductive health issues.
+</p>
+</div>
+</div>
+
+<div class="faq-box">
+<button class="faq-question">
+What should I bring during my appointment?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+Please bring your previous medical reports, prescriptions and ID proof during your visit.
+</p>
+</div>
+</div>
+
+<div class="faq-box">
+<button class="faq-question">
+Do you accept online appointment requests?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+Yes, online appointment requests are accepted through our website form and WhatsApp.
+</p>
+</div>
+</div>
+
+<div class="faq-box">
+<button class="faq-question">
+Why choose Nurvi Hospital?
+<span>+</span>
+</button>
+<div class="faq-answer">
+<p>
+Nurvi Hospital provides trusted healthcare, experienced doctors, modern technology and patient-focused treatment.
+</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 </section>
 
 <!-- APPOINTMENT -->
@@ -916,6 +1129,42 @@ let url=
 window.open(url,'_blank');
 
 });
+
+  // FAQ
+
+const faqQuestions=document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach(question=>{
+
+question.addEventListener("click",()=>{
+
+const answer=question.nextElementSibling;
+const icon=question.querySelector("span");
+
+if(answer.style.maxHeight){
+
+answer.style.maxHeight=null;
+icon.innerHTML="+";
+
+}else{
+
+document.querySelectorAll(".faq-answer").forEach(item=>{
+item.style.maxHeight=null;
+});
+
+document.querySelectorAll(".faq-question span").forEach(i=>{
+i.innerHTML="+";
+});
+
+answer.style.maxHeight=answer.scrollHeight+"px";
+icon.innerHTML="−";
+
+}
+
+});
+
+});
+
 
 </script>
 
