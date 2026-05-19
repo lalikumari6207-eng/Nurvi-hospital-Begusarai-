@@ -301,23 +301,23 @@ line-height:1.8;
 color:#555;
 }
 
-/* GALLERY SLIDER */
+/* GALLERY */
 
-.slider{
-overflow:hidden;
+.gallery-wrapper{
 position:relative;
+overflow:hidden;
 width:100%;
 }
 
 .slide-track{
 display:flex;
-width:calc(350px * 12);
-animation:scroll 25s linear infinite;
+gap:20px;
+transition:transform 0.5s ease-in-out;
 }
 
 .slide{
-width:350px;
-margin-right:20px;
+min-width:350px;
+flex-shrink:0;
 }
 
 .slide img{
@@ -327,13 +327,48 @@ object-fit:cover;
 border-radius:25px;
 }
 
-@keyframes scroll{
-0%{
-transform:translateX(0);
+/* Buttons */
+
+.gallery-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:rgba(196,0,0,0.9);
+color:white;
+font-size:28px;
+cursor:pointer;
+z-index:10;
+transition:0.3s;
 }
-100%{
-transform:translateX(calc(-350px * 6));
+
+.gallery-btn:hover{
+background:#8b0000;
 }
+
+.prev-btn{
+left:10px;
+}
+
+.next-btn{
+right:10px;
+}
+
+@media(max-width:768px){
+
+.slide{
+min-width:280px;
+}
+
+.gallery-btn{
+width:45px;
+height:45px;
+font-size:22px;
+}
+
 }
 
 /* APPOINTMENT */
@@ -773,9 +808,15 @@ Quick emergency consultation and immediate patient support services.
 <p>Hospital Environment & Healthcare Services</p>
 </div>
 
-<div class="slider hidden">
+<div class="gallery-wrapper hidden">
 
-<div class="slide-track">
+<button class="gallery-btn prev-btn" onclick="slideGallery(-1)">
+❮
+</button>
+
+<div class="slider">
+
+<div class="slide-track" id="slideTrack">
 
 <div class="slide">
 <img src="Screenshot_20260519-105113~2.png">
@@ -805,7 +846,47 @@ Quick emergency consultation and immediate patient support services.
 
 </div>
 
+<button class="gallery-btn next-btn" onclick="slideGallery(1)">
+❯
+</button>
+
 </div>
+</div>
+</section>
+
+  <!-- VIDEO REVIEW -->
+
+<section id="reviews" style="background:#fff4f4;">
+
+<div class="container">
+
+<div class="title">
+<h2>Patient Video Review</h2>
+<p>What Our Patients Say</p>
+</div>
+
+<div style="
+max-width:800px;
+margin:auto;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+">
+
+<video controls width="100%" poster="Screenshot_20260519-105113~2.png">
+
+<source src="review.mp4" type="video/mp4">
+
+Your browser does not support video.
+
+</video>
+
+</div>
+
+</div>
+
+</section>
+
 
   <!-- FAQ SECTION -->
 
@@ -1197,6 +1278,35 @@ entry.target.classList.add("show");
 
 hiddenElements.forEach((el)=>observer.observe(el));
 
+  // MANUAL GALLERY
+
+const slideTrack=document.getElementById("slideTrack");
+
+const slides=document.querySelectorAll(".slide");
+
+let currentIndex=0;
+
+function slideGallery(direction){
+
+const totalSlides=slides.length;
+
+currentIndex+=direction;
+
+if(currentIndex>=totalSlides){
+currentIndex=0;
+}
+
+if(currentIndex<0){
+currentIndex=totalSlides-1;
+}
+
+const slideWidth=slides[0].offsetWidth+20;
+
+slideTrack.style.transform=
+`translateX(-${currentIndex*slideWidth}px)`;
+
+  }
+  
 
 </script>
 
