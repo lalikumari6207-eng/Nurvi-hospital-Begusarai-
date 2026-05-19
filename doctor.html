@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Doctor - Nurvi Hospital</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#fff;
+color:#222;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+header{
+position:sticky;
+top:0;
+background:white;
+z-index:999;
+box-shadow:0 2px 15px rgba(0,0,0,0.08);
+}
+
+nav{
+max-width:1200px;
+margin:auto;
+padding:18px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo h2{
+font-size:32px;
+color:#c40000;
+font-weight:800;
+}
+
+.logo p{
+font-size:14px;
+color:gray;
+}
+
+.menu{
+display:flex;
+gap:30px;
+}
+
+.menu a{
+text-decoration:none;
+color:#222;
+font-weight:600;
+}
+
+.menu a:hover{
+color:#c40000;
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(135deg,#8b0000,#c40000,#ff4d4d);
+padding:90px 20px;
+color:white;
+}
+
+.hero-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:50px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+flex:1;
+}
+
+.hero-text h1{
+font-size:60px;
+line-height:1.2;
+margin-bottom:20px;
+font-weight:800;
+}
+
+.hero-text p{
+font-size:20px;
+line-height:1.8;
+color:#ffeaea;
+}
+
+.hero-img img{
+width:420px;
+height:520px;
+object-fit:cover;
+border-radius:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* SECTION */
+
+section{
+padding:90px 20px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+.title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.title h2{
+font-size:48px;
+color:#c40000;
+margin-bottom:10px;
+}
+
+.title p{
+color:gray;
+font-size:18px;
+}
+
+/* ABOUT */
+
+.about{
+display:flex;
+gap:50px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.about img{
+width:420px;
+height:520px;
+object-fit:cover;
+border-radius:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-text{
+flex:1;
+}
+
+.about-text h3{
+font-size:45px;
+color:#c40000;
+margin-bottom:20px;
+}
+
+.about-text p{
+font-size:18px;
+line-height:1.9;
+color:#555;
+margin-bottom:20px;
+}
+
+/* QUALIFICATION */
+
+.qualifications{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.qual-box{
+background:#fff4f4;
+padding:30px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.qual-box h3{
+font-size:28px;
+color:#c40000;
+margin-bottom:10px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.gallery img{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* CONTACT */
+
+.contact{
+background:#f8f8f8;
+padding:80px 20px;
+}
+
+.contact-box{
+max-width:1200px;
+margin:auto;
+display:flex;
+gap:50px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.contact-info{
+flex:1;
+}
+
+.contact-info h2{
+font-size:45px;
+color:#c40000;
+margin-bottom:20px;
+}
+
+.contact-info p{
+font-size:18px;
+line-height:1.9;
+margin-bottom:20px;
+color:#555;
+}
+
+iframe{
+width:100%;
+height:420px;
+border:none;
+border-radius:30px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:white;
+padding:60px 20px;
+}
+
+.footer-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+}
+
+footer h3{
+font-size:28px;
+margin-bottom:20px;
+color:#ff4d4d;
+}
+
+footer p{
+line-height:2;
+color:#ccc;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-text h1{
+font-size:42px;
+}
+
+.hero-img img,
+.about img{
+width:100%;
+height:auto;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+
+<nav>
+
+<div class="logo">
+<h2>Nurvi Hospital</h2>
+<p>Advanced Urology Care</p>
+</div>
+
+<div class="menu">
+
+<a href="index.html">Home</a>
+<a href="#about">About Doctor</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-container">
+
+<div class="hero-text">
+
+<h1>Dr. Gulshan Kumar</h1>
+
+<p>
+Experienced Urologist Specialist providing advanced treatment
+for kidney stone, urinary tract diseases, prostate problems
+and male healthcare solutions with modern medical technology.
+</p>
+
+</div>
+
+<div class="hero-img">
+
+<img src="Screenshot_20260519-144515~2.png">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="title">
+<h2>About Doctor</h2>
+<p>Professional Experience & Medical Excellence</p>
+</div>
+
+<div class="about">
+
+<img src="Screenshot_20260519-105113~2.png">
+
+<div class="about-text">
+
+<h3>Trusted Urology Specialist</h3>
+
+<p>
+Dr. Gulshan Kumar is a highly experienced and trusted
+urologist specialist dedicated to providing advanced
+urology and male healthcare treatment in Begusarai.
+</p>
+
+<p>
+He completed MBBS from IGIMS and DNB in General Surgery
+from Indore. He also completed MCh in Urology and served
+as Ex-Fellow at CMC Vellore.
+</p>
+
+<p>
+He specializes in kidney stone laser treatment,
+urinary tract problems, prostate diseases,
+male health consultation and minimally invasive surgeries.
+</p>
+
+<p>
+His patient-focused treatment and modern healthcare approach
+make him one of the trusted doctors in the region.
+</p>
+
+</div>
+
+</div>
+
+<!-- QUALIFICATIONS -->
+
+<div class="qualifications">
+
+<div class="qual-box">
+<h3>MBBS</h3>
+<p>IGIMS</p>
+</div>
+
+<div class="qual-box">
+<h3>DNB</h3>
+<p>General Surgery, Indore</p>
+</div>
+
+<div class="qual-box">
+<h3>MCh</h3>
+<p>Urology Specialist</p>
+</div>
+
+<div class="qual-box">
+<h3>Ex-Fellow</h3>
+<p>CMC Vellore</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery" style="background:#fff4f4;">
+
+<div class="container">
+
+<div class="title">
+<h2>Doctor Gallery</h2>
+<p>Hospital & Medical Care</p>
+</div>
+
+<div class="gallery">
+
+<img src="Screenshot_20260519-144515~2.png">
+
+<img src="Screenshot_20260519-105127~2.png">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="contact-box">
+
+<div class="contact-info">
+
+<h2>Get In Touch</h2>
+
+<p>
+<b>Hospital Address:</b><br>
+NH-31, Pillar No. 20,<br>
+West of Jail Gate,<br>
+Shivpuri, Begusarai
+</p>
+
+<p>
+<b>Phone:</b><br>
++91 82529 57704
+</p>
+
+<p>
+<b>Working Hours:</b><br>
+Monday - Saturday : 9 AM - 7 PM
+</p>
+
+</div>
+
+<div style="flex:1;">
+
+<iframe
+src="https://maps.google.com/maps?q=C4CV+H97%20Begusarai&t=&z=15&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-container">
+
+<div>
+
+<h3>Nurvi Hospital</h3>
+
+<p>
+Advanced Urology Care and Modern Healthcare Solutions in Begusarai.
+</p>
+
+</div>
+
+<div>
+
+<h3>Contact</h3>
+
+<p>+91 82529 57704</p>
+
+<p>
+NH-31, Pillar No. 20,<br>
+West of Jail Gate,<br>
+Shivpuri, Begusarai
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+  </html>
